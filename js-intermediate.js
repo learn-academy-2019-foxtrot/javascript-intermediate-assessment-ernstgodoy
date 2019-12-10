@@ -29,15 +29,35 @@ var fullArr1 = [4, 9, 0, "7", 8, true, "hey", 7, 199, -9, false, "hola"]
 var fullArr2 = ["hello", 7, 23, -823, false, 78, null, "67", 6, "number"]
 // Expected output: [7, 23, -823]
 
+
+// const oddChecker = (array) => {
+//     let newArray = []
+//     var numsOnly = array.filter(Boolean) 
+//     for(let i = 0; i < numsOnly.length; i++){
+//         if(numsOnly[i] % 2 !== 0 ){
+//             newArray.push(array[i] )
+//         } 
+       
+//     }
+//     return newArray.filter(Number)
+// }
+
+
+// console.log(oddChecker(fullArr1))
+// console.log(oddChecker(fullArr2))
+
+
+//*edits
+
+
 const oddChecker = (array) => {
     let newArray = []
-    var numsOnly = array.filter(Boolean) 
-    for(let i = 0; i < numsOnly.length; i++){
-        if(array[i]%2 !== 0 ){
-            newArray.push(numsOnly[i] )
+    for(let i = 0; i < array.length; i++){
+        if(typeof array[i] === 'number' && array[i] % 2 !== 0 ){
+            newArray.push(array[i] )
         } 
     }
-    return newArray.filter(Number)
+    return newArray
 }
 
 
@@ -135,23 +155,39 @@ console.log(midLetter(middleLetters2))
 
 // 7. Write a program to get the area of a sphere using object classes. Create three spheres with different radi as test cases. Area of a sphere =  4πr^2 (four pi r squared)
 
-var sphereRadius = { 
-    sphere1: 100 , 
-    sphere2: 20 ,
-    sphere3: 5
-}
+// var sphereRadius = { 
+//     sphere1: 100 , 
+//     sphere2: 20 ,
+//     sphere3: 5
+// }
 
 
-const areaOfSphere = (r) =>{
-    return 4*Math.PI*r**2
+// const areaOfSphere = (r) =>{
+//     return 4*Math.PI*r**2
     
+// }
+
+// console.log(areaOfSphere(sphereRadius.sphere1))
+// console.log(areaOfSphere(sphereRadius.sphere2))
+// console.log(areaOfSphere(sphereRadius.sphere3))
+
+//*edits*
+
+class Sphere {
+    constructor(name, radius){
+        this.name = name
+        this.radius = radius
+        this.area = 4*Math.PI*this.radius**2
+    }
 }
+   
+const sphere1 = new Sphere ("sphere1", 100 )
+const sphere2 = new Sphere ("sphere2", 20 )
+const sphere3 = new Sphere ("sphere3", 5 )
 
-console.log(areaOfSphere(sphereRadius.sphere1))
-console.log(areaOfSphere(sphereRadius.sphere2))
-console.log(areaOfSphere(sphereRadius.sphere3))
-
-
+console.log(`the area of sphere 1 with the radius of 100 is ${sphere1.area}`)
+console.log(`the area of sphere 2 with the radius of 20 is ${sphere2.area}`)
+console.log(`the area of sphere 3 with the radius of 5 is ${sphere3.area}`)
 
 
 // 8. Use object destructuring to return the nested values of specs. Expected output: 4, "manual"
